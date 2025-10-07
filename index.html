@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeri Foto Cantik dengan Musik Autoplay</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
+      h1 {
+        color: #ff69b4; /* Warna pink feminin */
+        margin-bottom: 30px;
+      }
+      .gallery {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .photo-container {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 15px;
+        padding: 15px;
+        width: 300px;
+        transition: transform 0.3s;
+      }
+      .photo-container:hover {
+        transform: scale(1.05);
+      }
+      img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+      .caption {
+        font-size: 16px;
+        color: #ff1493; /* Pink cerah */
+        font-style: italic;
+      }
+      audio {
+        margin: 20px auto;
+        display: block;
+        width: 300px;
+      }
+      .music-note {
+        font-size: 18px;
+        color: #ff69b4;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>untuk nana bocil</h1>
+    <p>
+      <!-- Elemen audio untuk musik dengan autoplay -->
+      <audio id="backgroundMusic" controls loop autoplay muted>
+        <source src="tiktok.mp3" type="audio/mpeg" />
+        <source src="musik.ogg" type="audio/ogg" />
+        Browser kamu tidak mendukung audio. Coba ganti file musik di src!
+      </audio>
+    </p>
+
+    <p class="music-note">🎵💖</p>
+
+    <div class="gallery">
+      <div class="photo-container">
+        <img src="mi.jpg" alt="Foto Pertama - Senyum Manis" />
+        <div class="caption">gaya mu memanglah tengil 💕</div>
+      </div>
+
+      <div class="photo-container">
+        <img src="nana.jpg" alt="Foto Kedua - Gaya Keren" />
+        <div class="caption">Senyum manismu selalu bikin hari cerah! ✨</div>
+      </div>
+
+      <div class="photo-container">
+        <img src="kyami.jpg" alt="Foto Ketiga - Bahagia Bersama" />
+        <div class="caption">Bahagia itu sederhana, seperti momen ini! 🌸</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 30px; font-size: 14px; color: #666">
+      Aku sadar aku sering bikin kamu kesel. Tapi, aku nggak tahu gimana caranya
+      berhenti sayang sama kamu. Jadi, maafin aku ya, biar aku bisa terus bikin
+      kamu senyum
+      <br /><strong>Catatan:</strong> Aku tahu aku salah, dan aku nyesel banget.
+      Kamu itu orang yang paling penting buat aku, dan aku nggak mau kehilangan
+      kamu. Maafin aku ya, aku bakal belajar dari kesalahan ini.
+    </p>
+
+    <!-- JavaScript opsional untuk unmute setelah interaksi user -->
+    <script>
+      const audio = document.getElementById("backgroundMusic");
+
+      // Coba unmute setelah user klik di halaman
+      document.addEventListener(
+        "click",
+        function () {
+          if (audio.muted) {
+            audio.muted = false;
+            audio.play().catch((e) => console.log("Autoplay diblokir:", e));
+          }
+        },
+        { once: true }
+      ); // Hanya sekali
+
+      // Jika autoplay gagal, coba play manual setelah load
+      window.addEventListener("load", function () {
+        audio.play().catch((e) => console.log("Autoplay gagal:", e));
+      });
+    </script>
+  </body>
+</html>
